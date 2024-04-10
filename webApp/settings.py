@@ -75,7 +75,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'webApp.wsgi.application'
-GDAL_LIBRARY_PATH = 'C:/OSGeo4W/bin/gdal308.dll'
+
+GDAL_LIBRARY_PATH = './bin/gdal308.dll'
+
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
