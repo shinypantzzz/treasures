@@ -1,0 +1,16 @@
+<div class="wrapper_center {% if screen_high %}screen_high{% endif %}">
+    <form action="{% url "login" %}" method="post" autocomplete="on">
+        {% csrf_token %}
+        <div class="input_set">
+            <label for="username">Username: </label>
+            <input type="text" name="username" id="username" autocomplete="username" required>
+        </div>
+        <div class="input_set">
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password" autocomplete="current-password" required>
+        </div>
+        <div class="bottom_buttons">
+            <button type="submit">Log In</button>
+        </div>
+    </form>
+</div>

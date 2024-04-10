@@ -1,0 +1,18 @@
+#success {
+    margin-bottom: 50px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    justify-self: center;
+}
+
+.info_item {
+    margin-bottom: 20px;
+}
+
+#id {
+    font-size: x-large;
+}

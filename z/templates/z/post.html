@@ -1,0 +1,12 @@
+{% extends "z/base.html" %}
+{% load static %}
+
+{% block title %}Post a treasure!{% endblock title %}
+
+{% block body %}
+{% include "z/post_body.html" %}
+{% endblock body %}
+
+{% block scripts %}
+<script src="{% static "z/scripts/dragndrop.js" %}"></script>
+{% endblock scripts %}

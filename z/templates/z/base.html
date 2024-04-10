@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Treasures!{% endblock title %}</title>
+    <link rel="shortcut icon" href="{% static "z/favicon.ico" %}" type="image/x-icon">
+    {% block styles %}
+    <link rel="stylesheet" href="{% static "z/styles/core.css" %}">
+    <link rel="stylesheet" href="{% static "z/styles/header.css" %}">
+    {% endblock styles %}
+</head>
+<body class="{% block body_class %}normal{% endblock body_class %}">
+    {% block header %}{% include "z/header.html"%}{% endblock header %}
+    {% block body %}{% endblock body %}
+    {% block scripts %}{% endblock scripts %}
+</body>
+</html>

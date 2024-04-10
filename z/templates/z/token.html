@@ -1,0 +1,36 @@
+{% extends "z/base.html" %}
+{% load static %}
+
+{% block title %}Token!{% endblock title %}
+
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static "z/styles/token.css" %}">
+{% endblock styles %}
+
+{% block body_class %}
+{% if token.active %}
+normal
+{% else %}
+reverse
+{% endif %}
+{% endblock body_class %}
+
+{% block body %}
+<div class="wrapper_center screen_high">
+    {% if token.new %}
+    <div id="success">
+        Your treasure was uploaded successfully!
+        <span class="accent_text">Save this token and do not lose it!</span>
+    </div>
+    {% endif %}
+    <div id="token_info" class="info">
+        <div class="info_item" id="is_active">This token <span class="accent_text">IS {% if not token.active %}NOT{% endif %}</span> active</div>
+        <div class="info_item copyable accent_block_light" id="id">{{ token.id }}</div>
+    </div>
+</div>
+{% endblock body %}
+
+{% block scripts %}
+<script type="text/javascript" src="{% static "z/scripts/copying.js" %}"></script>
+{% endblock scripts %}

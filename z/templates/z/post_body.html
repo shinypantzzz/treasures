@@ -1,0 +1,27 @@
+{% load static %}
+<div class="wrapper_center screen_high">
+    <h1>POST</h1>
+    <form action="{% url "post" %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="input_set">
+            <label for="lat">Latitude:</label>
+            <input type="text" placeholder="43.082761" name="lat" id="lat">
+        </div>
+        <div class="input_set">
+            <label for="lon">Longitude:</label>
+            <input type="text" placeholder="-79.064364" name="lon" id="lon">
+        </div>
+        <div class="input_set">
+            <label for="desc">Description:</label>
+            <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
+        </div>
+        <div class="input_set">
+            <label for="photo">Photo:</label>
+            <label for="photo" class="file_label"><img src="{% static "z/images/drag-and-drop.png" %}" alt="drag and drop here"></label>
+            <input type="file" name="photo" id="photo" multiple accept="image/*">
+        </div>
+        <div class="bottom_buttons">
+            <button type="submit" id="post_button">Post</button>
+        </div>
+    </form>
+</div>

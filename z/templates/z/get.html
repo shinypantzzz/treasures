@@ -1,0 +1,50 @@
+{% extends "z/base.html" %}
+{% load static %}
+
+{% block title %}Treasure!{% endblock title %}
+
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static "z/styles/get.css" %}">
+{% endblock styles %}
+
+{% block body %}
+<div class="wrapper_center screen_high">
+    <h1>Treasure #<span class="copyable">{{ treasure.id }}</span></h1>
+    <div class="container_row">
+        <div id="left">
+            <div id="location" class="accent_text">
+                <div class="b">
+                    Longitude: {{ treasure.location.x|floatformat:15 }}
+                </div>
+                <div class="b">
+                    Latitude: {{ treasure.location.y|floatformat:15 }}
+                </div>
+            </div>
+            <div class="accent_block_light">
+                {{ treasure.description }}
+            </div>
+        </div>
+        <div id="right">
+            <div class="slider">
+                <div class="slider_left"><</div>
+                <div class="slider_photos">
+                    {% for photo in treasure.photo_set.all %}
+                    <div class="slider_photo">
+                        <div class="slider_counter"></div>
+                        <img src="{{ photo.file.url }}" alt="">
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="slider_right">></div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
+{% block scripts %}
+<script src="{% static "z/scripts/slider.js" %}"></script>
+<script src="{% static "z/scripts/copying.js" %}"></script>
+{% endblock scripts %}

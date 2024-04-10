@@ -1,0 +1,31 @@
+{% extends "z/base.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="container">
+        <table>
+            <form action="{% url "assign_treasure" %}">
+                <div class="input_set fit_content">
+                    <input type="text" name="token">
+                    <button>&plus; Add</button>
+                </div>
+            </form>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>ID</th>
+                </tr>
+            </thead>
+            {% for treasure in treasures %}
+            <tr>
+                <th> {{ forloop.counter }} </th>
+                <td>{{ treasure.id }}</td>
+                <td class="right">
+                    <a class="button" href="{% url "get_treasure" pk=treasure.id %}">Open</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    
+{% endblock body %}

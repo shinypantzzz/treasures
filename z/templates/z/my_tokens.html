@@ -1,0 +1,42 @@
+{% extends "z/base.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="container">
+        <table>
+            <form action="{% url "assign_token" %}">
+                <div class="input_set fit_content">
+                    <input type="text" name="token">
+                    <button>&plus; Add</button>
+                </div>
+            </form>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Token</th>
+                    <th>Active?</th>
+                    <th>Protected?</th>
+                </tr>
+            </thead>
+            {% for token in tokens %}
+            <tr {% if not token.active %}class="reverse"{% endif %}>
+                <th> {{ forloop.counter }} </th>
+                <td>{{ token.id }}</td>
+                <td class="right">{{ token.active }}</td>
+                <td class="right {% if not token.protected %}accent_text{% endif %}">
+                    <a href="{% url "protect_token" %}?pk={{ token.id }}{% if token.protected %}&unprotect=t{% endif %}">
+                        {{ token.protected }}
+                    <a>
+                </td>
+                {% if token.active %}
+                <td class="right">
+                    <a class="button" href="{% url "get_new_treasure" %}?token={{ token.id }}">Spend</a>
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+        
+    </div>
+    
+{% endblock body %}

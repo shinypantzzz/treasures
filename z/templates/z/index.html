@@ -1,0 +1,28 @@
+{% extends "z/base.html" %}
+{% load static %}
+
+{% block title %}Treasures!{% endblock title %}
+
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static "z/styles/index.css" %}">
+{% endblock styles %}
+
+{% block header %}
+{% include "z/header.html" with reverse=True%}
+{% endblock header %}
+
+{% block body %}
+<div class="wrapper_row screen_high">
+    <div id="index_left">
+        {% include "z/post_body.html" %}
+    </div>
+    <div id="index_right" class="reverse">
+        {% include "z/get_new_body.html" %}
+    </div>
+</div>
+{% endblock body %}
+
+{% block scripts %}
+<script src="{% static "z/scripts/dragndrop.js" %}"></script>
+{% endblock scripts %}

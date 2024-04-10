@@ -1,0 +1,17 @@
+#location {
+    text-align: end;
+    margin-bottom: 10px;
+}
+
+#right {
+    width: 65%;
+    height: 70vh;
+}
+
+#left {
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    justify-content: end;
+}
+

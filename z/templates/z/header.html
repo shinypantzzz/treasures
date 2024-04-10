@@ -1,0 +1,22 @@
+<header>
+    <a href={% url "index" %}><div id="logo"><div id="short">T</div><div id="long">Treasures!</div></div></a>
+    <nav>
+
+    </nav>
+    <div id="user" class="{% if reverse %}reverse{% endif %}">
+        {% if user.is_anonymous %}
+            <ul class="linear_list">
+                <a href="{% url "login" %}"><li class="accent_hover">Log In</li></a>
+                <a href="{% url "registration" %}"><li class="accent_hover">Sign Up</li></a>
+            </ul>
+        {% else %}
+            <h1><a href="#profile">@{{ user.username }}</a></h1>
+            <ul class="hidden_list">
+                <a href="{% url "my_tokens" %}"><li class="accent_block_light accent_hover">My Tokens</li></a>
+                <a href="{% url "my_treasures" %}"><li class="accent_block_light accent_hover">My Treasures</li></a>
+                <a href="{% url "logout" %}"><li class="accent_block_light accent_hover">Log Out</li></a>
+            </ul>
+        {% endif %}</h1>
+    </div>
+</header>
+

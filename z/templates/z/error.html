@@ -1,0 +1,15 @@
+{% extends "z/base.html" %}
+{% load static %}
+
+{% block body_class %}reverse{% endblock body_class %}
+
+{% block body %}
+<div class="wrapper_center screen_high">
+    <h1 class="accent_text">
+        {{ error.code }} {{ error.name }}
+    </h1>
+    <div class="accent_block normal b">
+        {{ error.message }}
+    </div>
+</div>
+{% endblock body %}
